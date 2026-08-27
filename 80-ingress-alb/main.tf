@@ -26,7 +26,7 @@ resource "aws_lb" "ingress_alb" {
 resource "aws_lb_listener" "ingress_alb" {
   load_balancer_arn = aws_lb.ingress_alb.arn
   port              = "80"
-  protocol          = "HTTPS"
+  protocol          = "HTTP"
   ssl_policy        = "ELBSecurityPolicy-TLS13-1-3-2021-06"
   #certificate_arn   = local.ingress_alb_certificate_arn
 
