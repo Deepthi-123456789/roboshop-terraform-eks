@@ -271,14 +271,14 @@ resource "aws_security_group_rule" "frontend_frontend_alb" {
   to_port           = 80
 } */
 
-##### Frontend ALB SG RUles #####
+##### Frontend ALB SG RUles #####actually 443 but I have no  acm certifacete is pending for validation
 resource "aws_security_group_rule" "ingress_alb_public" {
   type              = "ingress"
   security_group_id = local.ingress_alb_sg_id
   cidr_blocks = ["0.0.0.0/0"]
-  from_port         = 443
+  from_port         = 80
   protocol          = "tcp"
-  to_port           = 443
+  to_port           = 80
 }
 
 ##### Bastion SG Rules #####
@@ -309,13 +309,13 @@ resource "aws_security_group_rule" "open_vpn_943" {
   to_port           = 943
 }
 
-resource "aws_security_group_rule" "open_vpn_443" {
+resource "aws_security_group_rule" "open_vpn_80" {
   type              = "ingress"
   security_group_id = local.open_vpn_sg_id
   cidr_blocks = ["0.0.0.0/0"]
-  from_port         = 443
+  from_port         = 80
   protocol          = "tcp"
-  to_port           = 443
+  to_port           = 80
 }
 
 resource "aws_security_group_rule" "open_vpn_1194" {
